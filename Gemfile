@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 
+
+gem 'ffaker'
+gem 'puma'
 gem 'ember-rails'
 gem 'ember-source'
 gem 'emblem-rails'
