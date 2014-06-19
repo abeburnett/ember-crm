@@ -10,6 +10,14 @@ App.Lead = DS.Model.extend
 		@get('firstName') + ' ' + @get('lastName')
 		).property('firstName', 'lastName')
 
+App.Lead.reopenClass
+	STATUSES: ['new', 'in progress', 'closed', 'bad']
+
 App.LeadRoute = Ember.Route.extend
 
 	model: (params) -> @store.find 'lead', params.id
+
+App.LeadController = Ember.ObjectController.extend
+	
+	actions:
+		saveChanges: -> @get('model').save() if @get('model.isDirty')
