@@ -9,3 +9,7 @@ App.Lead = DS.Model.extend
 	fullName: ( -> 
 		@get('firstName') + ' ' + @get('lastName')
 		).property('firstName', 'lastName')
+
+App.LeadRoute = Ember.Route.extend
+
+	model: (params) -> @store.find 'lead', params.id
